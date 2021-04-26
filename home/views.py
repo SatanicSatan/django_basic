@@ -91,9 +91,11 @@ def handelLogin(request):
             else:
                 messages.success(request, "Invalid Credentials, try again")
                 return redirect('home')
-        return HttpResponse('handelLogin')
+        return HttpResponse('404 - handelLogin')
 
 
 
 def handelLogout(request):
-    return HttpResponse('handelLogout')
+        logout(request)
+        messages.success(request, "Logged Out")
+        return redirect('home')
